@@ -1,0 +1,6 @@
+@TechChallenge4.Consumidor_HostAddress = http://localhost:5224
+
+GET {{TechChallenge4.Consumidor_HostAddress}}/
+Accept: application/json
+
+###

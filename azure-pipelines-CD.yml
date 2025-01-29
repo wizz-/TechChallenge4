@@ -1,0 +1,67 @@
+trigger: 
+   branches:
+    include:
+      - master
+
+
+variables:
+  buildConfiguration: 'Release'
+  dotnetVersion: '8.x'
+
+
+stages:
+  - stage: 'Build'
+    displayName: 'Build'
+    jobs:
+      - job: 'Build'
+        displayName: 'Build Job'
+        pool:
+          name: 'MaquinaLocal'
+
+        steps:
+        - task: UseDotNet@2 # Usando o UseDotNet@2 ele verifica se existe o .net na maquina e instala ou atualiza
+          displayName: 'Carregando SDK .NET no agente de build Versão: $(dotnetVersion)'
+          inputs:
+            packageType: 'sdk'
+            version: $(dotnetVersion)  
+            installationPath: $(Agent.ToolsDirectory)/dotnet
+
+        - task: DotNetCoreCLI@2 # Restaura os pacotes NuGet
+          displayName: 'Restaurando dependências'
+          inputs:
+            command: 'restore'
+            projects: '**/*.csproj'
+
+        - task: DotNetCoreCLI@2 # Build do projeto
+          displayName: 'Compilando o projeto na pasta ...'
+          inputs:
+            command: 'build'
+            projects: '**/*.csproj'
+            arguments: '--configuration $(buildConfiguration) --no-restore'
+
+        - task: DotNetCoreCLI@2 
+          displayName: 'Executar Testes Unitários'
+          inputs:
+            command: 'test'
+            projects: '**/*.csproj'
+            arguments: '--configuration $(buildConfiguration) --no-build'
+
+        - task: DotNetCoreCLI@2
+          displayName: 'Publicando o projeto na pasta $(publishDir)...'
+          inputs:
+            command: 'publish'
+            projects: '**/*.csproj'
+            publishWebProjects: false
+            arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+
+
+        - publish: '$(Build.ArtifactStagingDirectory)'
+          artifact: drop
+          
+        - download: current
+          artifact: drop
+
+        - script: |
+            echo "o deply em produção foi executado com sucesso "
+          displayName: 'Deploy em Produção' 
+
