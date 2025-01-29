@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  rabbitmq:
+    build:
+      context: .
+      dockerfile: Dockerfile.RabbitMQ
+    container_name: RabbitMQ-container
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+  
+  api:
+    build:
+      context: ../src/TechChallenge4.Api
+      dockerfile: Dockerfile
+    container_name: API-container
+    ports:
+      - "8081:80"
+    depends_on:
+      - rabbitmq
+    environment:
+      - RabbitMQ__HostName=rabbitmq
