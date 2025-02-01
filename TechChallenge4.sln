@@ -5,15 +5,15 @@ VisualStudioVersion = 17.10.34928.147
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechChallenge4.Api", "src\TechChallenge4.Api\TechChallenge4.Api.csproj", "{0A288BD1-4EC9-4F8E-955C-89DB5937F8D2}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{55B9B362-CD2B-40C8-8C9A-AA3B371655CB}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Presentation", "3 - Presentation", "{55B9B362-CD2B-40C8-8C9A-AA3B371655CB}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{79961BF8-26FB-449A-8FA1-34B6094BE5D9}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Domain", "0 - Domain", "{79961BF8-26FB-449A-8FA1-34B6094BE5D9}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra", "Infra", "{754A1ABE-F170-4530-AAF1-26469D88E041}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Infra", "1 - Infra", "{754A1ABE-F170-4530-AAF1-26469D88E041}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechChallenge4.Domain", "src\TechChallenge4.Domain\TechChallenge4.Domain.csproj", "{5BA14841-338B-46DF-BD90-7F9B078210FB}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{C9E59C6F-EC82-40AB-8A28-6D54C7166A3A}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{C9E59C6F-EC82-40AB-8A28-6D54C7166A3A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechChallenge4.Application", "src\TechChallenge4.Application\TechChallenge4.Application.csproj", "{8E26B53C-0062-4050-A37B-BAF50C692256}"
 EndProject
@@ -25,7 +25,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{9E5ED499-C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechChallenge4.Infra.Data.Dapper", "src\TechChallenge4.Infra.Data\TechChallenge4.Infra.Data.Dapper.csproj", "{80E7B594-BC4F-4A94-91C2-1E5E249C6F78}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testes", "Testes", "{E9CC1F32-203F-4675-B464-5874A32E4B72}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Testes", "4 - Testes", "{E9CC1F32-203F-4675-B464-5874A32E4B72}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechChallenge4.Tests", "src\TechChallenge4.Tests\TechChallenge4.Tests.csproj", "{D07D818A-FE38-48A9-810B-96203CA77366}"
 EndProject
@@ -41,14 +41,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechChallenge4.Infra.Databa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechChallenge4.Consumidor", "src\TechChallenge4.Consumidor\TechChallenge4.Consumidor.csproj", "{4CECE98A-4E48-4DFE-B37A-76ED53940D32}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docker", "Docker", "{F14864B4-A666-47D5-B576-143B653072A3}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Docker", "5 - Docker", "{F14864B4-A666-47D5-B576-143B653072A3}"
 	ProjectSection(SolutionItems) = preProject
 		Docker\docker-compose.yml = Docker\docker-compose.yml
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleAppTesteRedeDosContainers", "src\ConsoleAppTesteRedeDosContainers\ConsoleAppTesteRedeDosContainers.csproj", "{314447D7-A072-4224-BD51-D9E89A6077E6}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "K8s", "K8s", "{8C450BA8-E087-47FF-8C6F-5A5BFE90C9D9}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6 - K8s", "6 - K8s", "{8C450BA8-E087-47FF-8C6F-5A5BFE90C9D9}"
 	ProjectSection(SolutionItems) = preProject
 		k8s\docker-compose.yml = k8s\docker-compose.yml
 		k8s\k8s-manifest.yaml = k8s\k8s-manifest.yaml
