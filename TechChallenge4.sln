@@ -41,19 +41,18 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechChallenge4.Infra.Databa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechChallenge4.Consumidor", "src\TechChallenge4.Consumidor\TechChallenge4.Consumidor.csproj", "{4CECE98A-4E48-4DFE-B37A-76ED53940D32}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "k8s", "k8s", "{2D427CC5-A84E-4E5D-A8E0-2702314C38DF}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{2CC3FB3B-2E1D-40C5-BC9E-ECEE6FF751B3}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Consumidor", "Consumidor", "{01247053-7A34-4879-9AC0-4AC046E55B1C}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docker", "Docker", "{F14864B4-A666-47D5-B576-143B653072A3}"
 	ProjectSection(SolutionItems) = preProject
 		Docker\docker-compose.yml = Docker\docker-compose.yml
-		Docker\Dockerfile.RabbitMQ = Docker\Dockerfile.RabbitMQ
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppTesteRedeDosContainers", "src\ConsoleAppTesteRedeDosContainers\ConsoleAppTesteRedeDosContainers.csproj", "{314447D7-A072-4224-BD51-D9E89A6077E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleAppTesteRedeDosContainers", "src\ConsoleAppTesteRedeDosContainers\ConsoleAppTesteRedeDosContainers.csproj", "{314447D7-A072-4224-BD51-D9E89A6077E6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "K8s", "K8s", "{8C450BA8-E087-47FF-8C6F-5A5BFE90C9D9}"
+	ProjectSection(SolutionItems) = preProject
+		k8s\docker-compose.yml = k8s\docker-compose.yml
+		k8s\k8s-manifest.yaml = k8s\k8s-manifest.yaml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -124,8 +123,6 @@ Global
 		{3FA723D8-D26E-46FE-8DC0-9C0BAC26B618} = {754A1ABE-F170-4530-AAF1-26469D88E041}
 		{01C8ECE2-76D4-47E3-99D1-411891F4CF01} = {3FA723D8-D26E-46FE-8DC0-9C0BAC26B618}
 		{4CECE98A-4E48-4DFE-B37A-76ED53940D32} = {55B9B362-CD2B-40C8-8C9A-AA3B371655CB}
-		{2CC3FB3B-2E1D-40C5-BC9E-ECEE6FF751B3} = {2D427CC5-A84E-4E5D-A8E0-2702314C38DF}
-		{01247053-7A34-4879-9AC0-4AC046E55B1C} = {2D427CC5-A84E-4E5D-A8E0-2702314C38DF}
 		{314447D7-A072-4224-BD51-D9E89A6077E6} = {55B9B362-CD2B-40C8-8C9A-AA3B371655CB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution

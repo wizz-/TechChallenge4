@@ -1,0 +1,15 @@
+services:
+  api:
+    build:
+      context: ../src/TechChallenge4.Api
+      dockerfile: Dockerfile
+    image: techchallenge4-api:latest
+    ports:
+      - "5000:8080"
+  consumidor:
+    build:
+      context: ../src/TechChallenge4.Consumidor
+      dockerfile: Dockerfile
+    image: techchallenge4-consumidor:latest
+    ports:
+      - "4000:8080"
