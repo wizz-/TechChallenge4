@@ -1,6 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Polly;
 using System;
 using System.Data;
 using TechChallenge4.Application.Contatos;
@@ -61,10 +63,37 @@ namespace TechChallenge4.Infra.IoC
 
         private static void MapearEf(IServiceCollection services)
         {
-            services.AddDbContext<Contexto>((serviceProvider, options) =>
+            var retryPolicy = Policy
+                .Handle<SqlException>()
+                .WaitAndRetryAsync(10, retryAttempt => TimeSpan.FromSeconds(10),
+                    (exception, timeSpan, retryCount, context) =>
+                    {
+                        Console.WriteLine($"SQL: Tentativa {retryCount} de conexão ao SQL Server falhou: {exception.Message}. Tentando novamente em {timeSpan.Seconds} segundos.");
+                    });
+
+            var serviceProvider = services.BuildServiceProvider();
+            var configuration = serviceProvider.GetRequiredService<IConfiguration>();
+            var connectionString = configuration.GetConnectionString("DefaultConnection");
+            var connectionStringTeste = configuration.GetConnectionString("TestConnection");
+
+            Task.Run(async () =>
             {
-                var configuration = serviceProvider.GetRequiredService<IConfiguration>();
-                options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
+                await retryPolicy.ExecuteAsync(async () =>
+                {
+                    using var connection = new SqlConnection(connectionStringTeste);
+                    await connection.OpenAsync();
+                    Console.WriteLine("Conexão ao SQL Server estabelecida com sucesso.");
+
+                });
+            }).GetAwaiter().GetResult();
+
+            services.AddDbContext<Contexto>(options =>
+            {
+                options.UseSqlServer(connectionString,
+                    sqlServerOptions => sqlServerOptions.EnableRetryOnFailure(
+                        maxRetryCount: 10,
+                        maxRetryDelay: TimeSpan.FromSeconds(10),
+                        errorNumbersToAdd: null));
             });
 
             services.AddScoped<IContatoRepository, EfDal.ContatoRepository>();

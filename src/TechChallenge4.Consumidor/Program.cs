@@ -12,10 +12,10 @@ public static class Program
 
         var app = builder.Build();
 
-        if (app.Environment.IsDevelopment())
-        {
+        //if (app.Environment.IsDevelopment())
+        //{
             InicializarDatabase(app);
-        }
+        //}
 
         using var scope = app.Services.CreateScope();
         var consumidorDoRabbitMq = scope.ServiceProvider.GetRequiredService<IConsumidorDoRabbitMq>();
