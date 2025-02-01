@@ -65,7 +65,7 @@ namespace TechChallenge4.Infra.IoC
         {
             var retryPolicy = Policy
                 .Handle<SqlException>()
-                .WaitAndRetryAsync(10, retryAttempt => TimeSpan.FromSeconds(10),
+                .WaitAndRetryAsync(20, retryAttempt => TimeSpan.FromSeconds(5),
                     (exception, timeSpan, retryCount, context) =>
                     {
                         Console.WriteLine($"SQL: Tentativa {retryCount} de conexão ao SQL Server falhou: {exception.Message}. Tentando novamente em {timeSpan.Seconds} segundos.");

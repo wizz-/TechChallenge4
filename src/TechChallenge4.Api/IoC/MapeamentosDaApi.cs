@@ -41,7 +41,7 @@ namespace TechChallenge4.Api.IoC
             var retryPolicy = Policy
                 .Handle<BrokerUnreachableException>()
                 .Or<ConnectFailureException>()
-                .WaitAndRetryAsync(10, retryAttempt => TimeSpan.FromSeconds(10),
+                .WaitAndRetryAsync(20, retryAttempt => TimeSpan.FromSeconds(5),
                     (exception, timeSpan, retryCount, context) =>
                     {
                         Console.WriteLine($"RabbitMQ: Tentativa {retryCount} falhou: {exception.Message}. Tentando novamente em {timeSpan.Seconds} segundos.");

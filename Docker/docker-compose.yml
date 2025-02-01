@@ -11,7 +11,7 @@
 services:
   rabbitmq:
     image: rabbitmq:3-management
-    container_name: RabbitMQ-container
+    container_name: RabbitMQ-Container
     ports:
       - "5672:5672"
       - "15672:15672"
@@ -20,7 +20,7 @@ services:
 
   sqlserver:
     image: mcr.microsoft.com/mssql/server:2022-latest
-    container_name: SQLServer-container
+    container_name: SQLServer-Container
     ports:
         - "1433:1433"
     environment:
@@ -33,7 +33,7 @@ services:
     build:
       context: ../src/TechChallenge4.Api
       dockerfile: Dockerfile
-    container_name: API-container
+    container_name: API-Container
     ports:
       - "5000:8080"
     depends_on:
@@ -44,6 +44,22 @@ services:
       - SqlServer__HostName=sqlserver 
     networks:
       - minhaRede 
+
+  consumidor:
+    build:
+      context: ../src/TechChallenge4.Consumidor
+      dockerfile: Dockerfile
+    container_name: Consumidor-Container
+    ports:
+      - "4000:8080"
+    depends_on:
+      - rabbitmq
+      - sqlserver
+    environment:
+      - RabbitMQ__HostName=rabbitmq
+      - SqlServer__HostName=sqlserver 
+    networks:
+      - minhaRede
 
 networks:
   minhaRede:
