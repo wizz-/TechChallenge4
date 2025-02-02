@@ -43,16 +43,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechChallenge4.Consumidor",
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Docker", "5 - Docker", "{F14864B4-A666-47D5-B576-143B653072A3}"
 	ProjectSection(SolutionItems) = preProject
-		Docker\docker-compose.yml = Docker\docker-compose.yml
+		Docker\docker-compose.yaml = Docker\docker-compose.yaml
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleAppTesteRedeDosContainers", "src\ConsoleAppTesteRedeDosContainers\ConsoleAppTesteRedeDosContainers.csproj", "{314447D7-A072-4224-BD51-D9E89A6077E6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6 - K8s", "6 - K8s", "{8C450BA8-E087-47FF-8C6F-5A5BFE90C9D9}"
 	ProjectSection(SolutionItems) = preProject
-		k8s\docker-compose.yml = k8s\docker-compose.yml
 		api-hpa.yaml = api-hpa.yaml
 		k8s\k8s-manifest.yaml = k8s\k8s-manifest.yaml
+		k8s\docker-compose.yaml = k8s\docker-compose.yaml
 	EndProjectSection
 EndProject
 Global
