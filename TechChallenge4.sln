@@ -51,7 +51,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6 - K8s", "6 - K8s", "{8C450BA8-E087-47FF-8C6F-5A5BFE90C9D9}"
 	ProjectSection(SolutionItems) = preProject
 		k8s\docker-compose.yml = k8s\docker-compose.yml
-		k8s-manifest-hpa.yaml = k8s-manifest-hpa.yaml
+		api-hpa.yaml = api-hpa.yaml
 		k8s\k8s-manifest.yaml = k8s\k8s-manifest.yaml
 	EndProjectSection
 EndProject
