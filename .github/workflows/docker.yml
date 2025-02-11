@@ -23,7 +23,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: ./Dockerfile
+          file: ./docker.yml
           push: true
           tags: juniovicente/techchallenge4:latest
 
