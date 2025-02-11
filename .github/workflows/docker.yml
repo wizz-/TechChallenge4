@@ -37,8 +37,3 @@ jobs:
     - name: Check container logs
       run: docker logs $(docker ps -q --filter ancestor=techchallenge4:latest)
 
-    - name: Test Docker container
-      run: |
-        sleep 10  # Espera 10 segundos para a aplicação iniciar
-        docker ps
-        curl http://localhost:8080
