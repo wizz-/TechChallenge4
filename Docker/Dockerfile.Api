@@ -1,4 +1,8 @@
+RUN dotnet restore
+RUN dotnet publish -c Release -o /publish
+
+# Estágio de runtime
 FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine AS base
 WORKDIR /app
-COPY ./publish .
+COPY --from=build /publish .
 ENTRYPOINT ["dotnet", "TechChallenge4.Api.dll"]
